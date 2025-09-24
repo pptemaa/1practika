@@ -1,0 +1,6 @@
+cd "fgfg fgfg"
+cd plplp
+ls -la
+# Это комментарий
+cd
+eroeo
