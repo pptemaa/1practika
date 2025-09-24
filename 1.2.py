@@ -28,10 +28,9 @@ def print_to_console(text):
     console_output.see(tk.END)
     console_output.configure(state='disabled')
 
-print_to_console("DEBUG: Параметры запуска:")
-print_to_console(f"DEBUG: VFS путь: {vfs_path}")
-print_to_console(f"DEBUG: Стартовый скрипт: {startup_script}")
-print_to_console("")
+print_to_console(" Параметры запуска:")
+print_to_console(f"VFS путь: {vfs_path}")
+print_to_console(f"Стартовый скрипт: {startup_script}")
 
 def execute_startup_script(script_path):
     if not os.path.exists(script_path):
