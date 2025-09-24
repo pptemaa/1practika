@@ -1,0 +1,5 @@
+python vfs_emulator.py
+python 1.2.py --startup-script "test1.txt"
+python vfs_emulator.py --startup-script "test1.txt"
+python vfs_emulator.py --vfs-path "test_folder" --startup-script "test1.txt"
+

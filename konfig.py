@@ -8,7 +8,7 @@ root.geometry("800x600")#главное окно
 
 
 console_output = scrolledtext.ScrolledText(root, state='disabled', bg='white', fg='black')
-console_output.pack(expand=True, fill='both', padx=5, pady=5)#  окно вывода
+console_output.pack(expand=True, fill='both', padx=5, pady=5)#  окно вывода(#pack размещает виджет в окне с расширением на все доступное пространство)
 
 
 input_entry = tk.Entry(root, bg='white', fg='black', insertbackground='black')
@@ -17,13 +17,13 @@ input_entry.pack(fill='x', padx=5, pady=5)#  окно ввода
 def print_to_console(text):
     console_output.configure(state='normal')
     console_output.insert(tk.END, text + "\n")
-    console_output.see(tk.END)
+    console_output.see(tk.END)#рокрутили в конец
     console_output.configure(state='disabled')
 
 def handle_command(event=None):
     command_line = input_entry.get().strip()
     print_to_console(command_line)
-    input_entry.delete(0, tk.END)
+    input_entry.delete(0, tk.END)#очистили строку ввода
 
     if not command_line:
         return
