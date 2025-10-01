@@ -36,13 +36,18 @@ def execute_startup_script(script_path):
     if not os.path.exists(script_path):
         print_to_console(f"Ошибка: Скрипт не найден: {script_path}")
         return
-   
+    
     try:
         with open(script_path, 'r', encoding='utf-8') as file:
             for line in file:
+                if '#' in line:
+                    line = line.split('#', 1)[0]
+                
                 line = line.strip()
-                if not line or line.startswith('#'):
+                
+                if not line:
                     continue
+                
                 print_to_console(line)
                 handle_script_command(line)
     except Exception as e:
@@ -51,6 +56,9 @@ def execute_startup_script(script_path):
 def handle_script_command(command_line):
     try:
         args = shlex.split(command_line)
+        if not args:
+            return
+
         command = args[0]
         command_args = args[1:]
         
@@ -68,14 +76,23 @@ def handle_script_command(command_line):
 
 def handle_command(event=None):
     command_line = input_entry.get().strip()
-    print_to_console(command_line)
     input_entry.delete(0, tk.END)
 
     if not command_line:
         return
+    print_to_console(command_line) 
+
+    if '#' in command_line:
+        command_line = command_line.split('#', 1)[0].strip()
+
+    if not command_line: 
+        return
 
     try:
         args = shlex.split(command_line)
+        if not args:
+            return
+            
         command = args[0]
         command_args = args[1:]
         
@@ -87,7 +104,6 @@ def handle_command(event=None):
             print_to_console(f"Команда 'cd' с аргументами: {command_args}")
         else:
             print_to_console(f"Ошибка: Неизвестная команда '{command}'")
-
     except ValueError as e:
         print_to_console(f"Ошибка: Неверные аргументы - {e}")
 
