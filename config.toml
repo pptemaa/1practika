@@ -1,0 +1,6 @@
+package_name = "requests"
+repository_url = "https://github.com/psf/requests.git"
+repo_mode = "clone"
+output_image = "graph.png"
+ascii_tree = true
+max_depth = 3
