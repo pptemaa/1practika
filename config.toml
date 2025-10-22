@@ -1,5 +1,5 @@
-package_name = "requests"
-repository_url = "https://github.com/psf/requests.git"
+package_name = "bash"
+repository_url = "https://dl-cdn.alpinelinux.org/alpine/v3.19/main/x86_64"
 repo_mode = "clone"
 output_image = "graph.png"
 ascii_tree = true
